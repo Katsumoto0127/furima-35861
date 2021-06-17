@@ -70,6 +70,11 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include 'Password is invalid. Input half-width alphanumeric characters.'
     end
+    it 'passwordとpassword_confirmationが一致しないと登録できない'
+      @user.password = 'abcd1234'
+      @user.password_confirmation = 'efg5678'
+      expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
+    end
     it 'last_nameが空だと登録できない' do
       @user.last_name = ''
       @user.valid?
