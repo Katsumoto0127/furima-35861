@@ -4,7 +4,7 @@ RSpec.describe Item, type: :model do
 before do
   @item = FactoryBot.build(:item)
 end
-
+sleep(1)
 context '商品出品ができるとき' do
     it '正しく入力出来ていれば登録出来る' do
       expect(@item).to be_valid
