@@ -20,11 +20,11 @@ RSpec.describe PurchasesAddress, type: :model do
     end
 
     context '購入できないとき' do
-      # it 'トークンが空では購入できない' do
-      #   @purchase_address.token = ""
-      #   @purchase_address.valid?
-      #   expect(@purchase_address.errors.full_messages).to include ""
-      # end
+      it 'トークンが空では購入できない' do
+        @purchase_address.token = ""
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include "Token can't be blank"
+      end
       it '郵便番号が空では購入できない' do
         @purchase_address.postal_code = ""
         @purchase_address.valid?
