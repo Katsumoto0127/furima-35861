@@ -90,6 +90,11 @@ RSpec.describe PurchasesAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include "User can't be blank"
       end
+      it 'itemが紐付いていないと購入できない' do
+        @purchase_address.item_id = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include "Item can't be blank"
+      end
     end
   end
 end
