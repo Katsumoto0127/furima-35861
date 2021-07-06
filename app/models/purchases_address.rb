@@ -5,9 +5,9 @@ class PurchasesAddress
   with_options presence: true do
     validates :user_id
     validates :item_id
-    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :telephone_number, numericality: {only_integer: true, message: "Phone number is invalid. Input only number"}
-    validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
+    validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン(-)はいりません"}
+    validates :telephone_number, numericality: {only_integer: true, message: "が無効です"}
+    validates :prefecture_id, numericality: {other_than: 1, message: "空白にはできません"}
     validates :city
     validates :house_number
     validates :token
